@@ -1,12 +1,22 @@
+
 const router = require('express').Router();
 const {
-  getSinglePost,
-  getPosts,
-  createPost,
-} = require('../../controllers/postController');
+  getThoughts,
+  getSingleThought,
+  createThought,
+  updateThoughts,
+  deleteThought,
+  addReaction,
+  deleteReaction,
+} = require('../../controllers/thoughtController');
 
-router.route('/').get(getPosts).post(createPost);
-
-router.route('/:postId').get(getSinglePost);
+router.route('/').get(getThoughts);
+router.route('/:thoughtId').get(getSingleThought);
+router.route('/').post(createThought);
+router.route('/:thoughtId').delete(deleteThought);
+router.route('/:thoughtId').put(updateThoughts);
+router.route('/:thoughtId').delete(deleteThought);
+router.route('/:thoughtId/reactions').post(addReaction);
+router.route('/:thoughtId/reactions/:reactionId').delete(deleteReaction);
 
 module.exports = router;
