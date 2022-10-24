@@ -3,7 +3,7 @@ const {
   getTags,
   getSingleTag,
   createTag,
-} = require('../../controllers/tagController');
+} = require('../../controllers/userController');
 
 // /api/users
 router.route('/').get(getTags).post(createTag);
